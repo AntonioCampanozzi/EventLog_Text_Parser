@@ -1,4 +1,4 @@
-from Paragraph import Paragraph
+from EventLog_Text_Parser.code.Paragraph import Paragraph
 
 
 class Text:
