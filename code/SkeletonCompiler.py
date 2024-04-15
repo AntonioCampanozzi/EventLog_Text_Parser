@@ -1,7 +1,7 @@
 from pm4py.objects.log.obj import EventLog, Trace
 
-from EventSkeleton import EventSkeleton
-from GlobalSkeleton import GlobalSkeleton
+from EventLog_Text_Parser.code.EventSkeleton import EventSkeleton
+from EventLog_Text_Parser.code.GlobalSkeleton import GlobalSkeleton
 
 
 class SkeletonCompiler:
