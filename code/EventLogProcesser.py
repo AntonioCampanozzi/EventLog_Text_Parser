@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import pm4py
 from pm4py.objects.log.obj import EventLog
 
@@ -12,7 +14,8 @@ class EventLogProcesser:
 
     @staticmethod
     def convertTimeStamp(eventLog: EventLog):
-        print('')
-
-
+        for trc in eventLog:
+            timestampOfFirstEvent = int(datetime.timestamp(trc[0].get('time:timestamp')))
+            for e in trc:
+                e['time:timestamp'] = int(datetime.timestamp(e.get('time:timestamp')) - timestampOfFirstEvent)
 
