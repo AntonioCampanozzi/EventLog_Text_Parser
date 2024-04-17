@@ -20,7 +20,7 @@ class SkeletonCompiler:
         # extracting values from the event
         values = []
         for nt in self.__skeletonEvent.getNonTerminals():
-            values = values.append(Trace[index].get(nt.getName()))
+            values.append(traceOfTheEvent[index].get(nt.getName()))
         localSentence = self.__skeletonEvent.generateSentence(values)
         return localSentence
 
@@ -28,7 +28,7 @@ class SkeletonCompiler:
         # extracting values from global part of the trace
         values = []
         for nt in self.__skeletonGlobal.getNonTerminals():
-            values = values.append(trace.attributes.get(nt.getName()))
+            values.append(trace.attributes.get(nt.getName()))
         globalSentence = self.__skeletonGlobal.generateSentence(values)
         return globalSentence
 
@@ -46,6 +46,7 @@ class SkeletonCompiler:
         # this constructor does nothing, is needed just to initialize the variable
         text: Text = Text()
         for i in range(self.__logToCompile.__len__()):
-            i_paragraph=self.__compileTrace(self.__logToCompile[i])
+            i_paragraph=self.__compileTrace(i)
             text.add(i_paragraph)
-        return Text
+        return text
+

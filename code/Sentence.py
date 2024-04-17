@@ -8,4 +8,6 @@ class Sentence:
         self.__form=form
 
     def __str__(self):
-        return f'{self.__form}'
+        s=''
+        s+=f'{self.__form}'
+        return s

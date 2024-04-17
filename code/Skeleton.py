@@ -21,9 +21,8 @@ class Skeleton(ABC):
         for i in range(self._nonTerminals.__len__()):
             sentence = sentence.replace(f'<{self._nonTerminals[i].getName()}>', str(values[i]))
         # post-processing(removing skeleton parts with null datas)
-        voidDataPattern = re.compile(r'\([a-z\s]*None[a-z\s]*\)', re.IGNORECASE)
+        voidDataPattern = re.compile(r'\([^()]*?\bnan\b[^()]*?\)')
         voidParts = re.findall(voidDataPattern, sentence)
-        print(voidParts)
         for i in voidParts:
             sentence = sentence.replace(i, '')
         # regardless, we are removing all ()

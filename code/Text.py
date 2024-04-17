@@ -2,10 +2,10 @@ from EventLog_Text_Parser.code.Paragraph import Paragraph
 
 
 class Text:
-    __paragraphSet: list
+    paragraphSet: list = []
 
     def add(self, paragraph: Paragraph):
-        self.__paragraphSet.append(paragraph)
+        self.paragraphSet.append(paragraph)
 
     def store(self, filepath: str):
         with open(filepath, 'w') as file:
@@ -13,6 +13,6 @@ class Text:
 
     def __str__(self):
         textstr = ''
-        for paragraph in self.__paragraphSet:
+        for paragraph in self.paragraphSet:
             textstr += f'{paragraph}\n'
         return textstr
