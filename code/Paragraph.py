@@ -7,6 +7,7 @@ class Paragraph:
 
     def __init__(self, globalSentence: Sentence):
         self.__globalSentence = globalSentence
+        self.__localSentences = []
 
     def getGlobalSentence(self):
         return self.__globalSentence

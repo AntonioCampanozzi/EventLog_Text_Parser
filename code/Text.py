@@ -2,7 +2,7 @@ from EventLog_Text_Parser.code.Paragraph import Paragraph
 
 
 class Text:
-    __paragraphSet: list
+    __paragraphSet: list = []
 
     def add(self, paragraph: Paragraph):
         self.__paragraphSet.append(paragraph)
