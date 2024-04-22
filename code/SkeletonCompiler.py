@@ -46,7 +46,7 @@ class SkeletonCompiler:
         # this constructor does nothing, is needed just to initialize the variable
         text: Text = Text()
         for i in range(self.__logToCompile.__len__()):
-            i_paragraph=self.__compileTrace(i)
+            i_paragraph = self.__compileTrace(i)
+            i_paragraph.toSubParagraphs()
             text.add(i_paragraph)
         return text
-
