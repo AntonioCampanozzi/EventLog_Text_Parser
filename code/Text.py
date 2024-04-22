@@ -16,3 +16,10 @@ class Text:
         for paragraph in self.__paragraphSet:
             textstr += f'{paragraph}\n'
         return textstr
+
+    def __len__(self, metric: str = 'characters'):
+        traceLens = []
+        for i in self.__paragraphSet:
+            traceLens.append(i.__len__(metric))
+
+        return traceLens
