@@ -11,6 +11,9 @@ class Text:
         with open(filepath, 'w') as file:
             file.write(self.__str__())
 
+    def getParagraph(self, pargfIndex: int):
+        return self.__paragraphSet[pargfIndex]
+
     def __str__(self):
         textstr = ''
         for paragraph in self.__paragraphSet:
