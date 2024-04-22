@@ -24,3 +24,11 @@ class Paragraph:
             paragraphstr += f'{localSentence};\n'
         paragraphstr += '\n'
         return paragraphstr
+
+    def __len__(self, metric: str = 'characters'):
+        paragraph_length = self.__globalSentence.__len__(metric)
+
+        for event in self.__localSentences:
+            paragraph_length += event.__len__(metric)
+
+        return paragraph_length
