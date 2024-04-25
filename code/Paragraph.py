@@ -7,10 +7,11 @@ class Paragraph:
     __trcClass: object
     __prefixSet: list
 
-    def __init__(self, globalSentence: Sentence):
+    def __init__(self, globalSentence: Sentence, trclass:object):
         self.__globalSentence = globalSentence
         self.__localSentences = []
         self.__prefixSet = []
+        self.__trcClass=trclass
 
     def getGlobalSentence(self):
         return self.__globalSentence
@@ -21,12 +22,15 @@ class Paragraph:
     def getPrefixSet(self):
         return self.__prefixSet
 
+    def getClass(self):
+        return self.__trcClass
+
     def addLocalSentence(self, locSentence: Sentence):
         self.__localSentences.append(locSentence)
 
     def toSubParagraphs(self, prfxLen: int = 1):
         while prfxLen <= self.__localSentences.__len__():
-            subParagraph = Paragraph(self.__globalSentence)
+            subParagraph = Paragraph(self.__globalSentence, self.__trcClass)
             for i in range(prfxLen):
                 subParagraph.addLocalSentence(self.__localSentences[i])
             self.__prefixSet.append(subParagraph)
@@ -45,9 +49,10 @@ class Paragraph:
         return paragraphstr
 
     def __len__(self, metric: str = 'characters'):
-        paragraph_length = self.__globalSentence.__len__(metric)
-
-        for event in self.__localSentences:
-            paragraph_length += event.__len__(metric)
-
+        paragraph_length = 0
+        for prfx in self.__prefixSet:
+            prefix_length = prfx.__globalSentence.__len__(metric)
+            for event in prfx.__localSentences:
+                prefix_length += event.__len__(metric)
+            paragraph_length += prefix_length
         return paragraph_length
