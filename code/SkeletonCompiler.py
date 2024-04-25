@@ -35,7 +35,9 @@ class SkeletonCompiler:
     def __compileTrace(self, index: int):
         # first, the head of the Trace
         globalSentence = self.__compileGlobalTrace(self.__logToCompile[index])
-        paragraph = Paragraph(globalSentence)
+        #extracting trace label
+        traceclass=self.__logToCompile[index].attributes['label']
+        paragraph = Paragraph(globalSentence, traceclass)
         # then, all events
         for i in range(self.__logToCompile[index].__len__()):
             i_localSentence = self.__compileEvent(self.__logToCompile[index], i)
