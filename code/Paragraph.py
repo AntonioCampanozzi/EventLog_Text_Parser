@@ -7,11 +7,11 @@ class Paragraph:
     __trcClass: object
     __prefixSet: list
 
-    def __init__(self, globalSentence: Sentence, trclass:object):
+    def __init__(self, globalSentence: Sentence, trclass: object):
         self.__globalSentence = globalSentence
         self.__localSentences = []
         self.__prefixSet = []
-        self.__trcClass=trclass
+        self.__trcClass = trclass
 
     def getGlobalSentence(self):
         return self.__globalSentence
@@ -40,10 +40,10 @@ class Paragraph:
     def __str__(self):
         paragraphstr = '***START_PRAGRAPH***\n'
         for i in self.__prefixSet:
-            prefixstr = f'{i.getGlobalSentence()}\n'
+            prefixstr = ''
             for localSentence in i.__localSentences:
                 prefixstr += f'{localSentence};\n'
-            prefixstr += '\n'
+            prefixstr += f'{i.getGlobalSentence()}\n'
             paragraphstr += f'{prefixstr}\n'
         paragraphstr += '***END_PARAGRAPH***\n'
         return paragraphstr
