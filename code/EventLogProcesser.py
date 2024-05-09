@@ -31,10 +31,11 @@ class EventLogProcesser:
 
     @staticmethod
     def train_test_Split(evLog: EventLog, xesDestinationpath: str, originalXesName: str, trainPrcntg: float = 0.8):
-        train_test_EventLogs = pm4py.objects.log.util.split_train_test.split(evLog, trainPrcntg)
-        trainEventLog = train_test_EventLogs[0]
-        testEventLog = train_test_EventLogs[1]
-        # writing a new .xes with only train part
-        pm4py.write_xes(trainEventLog, f'{xesDestinationpath}\\TRAIN_{originalXesName}')
+        dummy_EventLog, test_EventLog = pm4py.objects.log.util.split_train_test.split(evLog, trainPrcntg)
+        # splitting dummy EventLog in train and validation
+        train_EventLog, validation_EventLog = pm4py.objects.log.util.split_train_test.split(dummy_EventLog, trainPrcntg)
+        # writing new xes files for train and validation logs
+        pm4py.write_xes(train_EventLog, f'{xesDestinationpath}\\TRAIN_{originalXesName}')
+        pm4py.write_xes(validation_EventLog, f'{xesDestinationpath}\\VALIDATION_{originalXesName}')
         # writing a new .xes with only test part
-        pm4py.write_xes(testEventLog, f'{xesDestinationpath}\\TEST_{originalXesName}')
+        pm4py.write_xes(test_EventLog, f'{xesDestinationpath}\\TEST_{originalXesName}')
