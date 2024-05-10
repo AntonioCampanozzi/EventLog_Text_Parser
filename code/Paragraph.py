@@ -1,4 +1,4 @@
-from Sentence import Sentence
+from EventLog_Text_Parser.code.Sentence import Sentence
 
 
 class Paragraph:
