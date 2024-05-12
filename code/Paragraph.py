@@ -38,14 +38,13 @@ class Paragraph:
         return self.__prefixSet
 
     def __str__(self):
-        paragraphstr = '***START_PRAGRAPH***\n'
+        paragraphstr = ''
         for i in self.__prefixSet:
             prefixstr = ''
             for localSentence in i.__localSentences:
                 prefixstr += f'{localSentence};\n'
             prefixstr += f'{i.getGlobalSentence()}\n'
-            paragraphstr += f'{prefixstr}\n'
-        paragraphstr += '***END_PARAGRAPH***\n'
+            paragraphstr += f'{prefixstr}'
         return paragraphstr
 
     def __len__(self, metric: str = 'characters'):

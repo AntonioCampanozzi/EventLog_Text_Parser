@@ -1,3 +1,5 @@
+from sklearn import preprocessing
+
 from EventLog_Text_Parser.code.Paragraph import Paragraph
 import pickle
 
@@ -36,9 +38,14 @@ class Text:
 
     def extractLabels(self):
         labels = []
+        labelEncoder = preprocessing.LabelEncoder()
         for par in self.__paragraphSet:
             labels.append(par.getClass())
-        return labels
+        bin_labels = labelEncoder.fit_transform(labels)
+
+        # 0 for deviant, 1 for regular
+
+        return bin_labels
 
     def uniqueLabels(self):
         labels = []
