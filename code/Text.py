@@ -39,8 +39,8 @@ class Text:
     def extractLabels(self):
         labels = []
         labelEncoder = preprocessing.LabelEncoder()
-        for par in self.__paragraphSet:
-            labels.append(par.getClass())
+        for prefix in self.extractPrefixes():
+            labels.append(prefix.getClass())
         bin_labels = labelEncoder.fit_transform(labels)
 
         # 0 for deviant, 1 for regular
@@ -53,10 +53,17 @@ class Text:
             labels.append(par.getClass())
         return list(set(labels))
 
+    def extractPrefixes(self):
+        prefixes=[]
+        for par in self.__paragraphSet:
+            for prfx in par.getPrefixSet():
+                prefixes.append(prfx)
+        return prefixes
+
     def __str__(self):
         textstr = ''
         for paragraph in self.__paragraphSet:
-            textstr += f'{paragraph}\n'
+            textstr += f'{paragraph.formatParagraph()}\n'
         return textstr
 
     def __len__(self, metric: str = 'characters'):
@@ -65,3 +72,4 @@ class Text:
             traceLens.append(i.__len__(metric))
 
         return traceLens
+
