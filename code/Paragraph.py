@@ -32,22 +32,30 @@ class Paragraph:
         while prfxLen <= self.__localSentences.__len__():
             subParagraph = Paragraph(self.__globalSentence, self.__trcClass)
             for i in range(prfxLen):
-                subParagraph.addLocalSentence(self.__localSentences[i])
+                subParagraph.addLocalSentence(self.getLocalSentence(i))
             self.__prefixSet.append(subParagraph)
             prfxLen += 1
         return self.__prefixSet
 
-    def __str__(self):
+    def formatParagraph(self):
         paragraphstr = ''
         for i in self.__prefixSet:
             prefixstr = ''
             for localSentence in i.__localSentences:
-                prefixstr += f'{localSentence};\n'
+                prefixstr += f'{localSentence}\n'
             prefixstr += f'{i.getGlobalSentence()}\n'
-            paragraphstr += f'{prefixstr}'
+            paragraphstr += f'{prefixstr}\n'
         return paragraphstr
 
-    def __len__(self, metric: str = 'characters'):
+
+    def __str__(self):
+            prefixstr=''
+            for localSentence in self.__localSentences:
+                prefixstr += f'{localSentence}; '
+            prefixstr += f'{self.getGlobalSentence()}   '
+            return prefixstr
+
+    def Paragraphlen(self, metric: str = 'characters'):
         paragraph_length = 0
         for prfx in self.__prefixSet:
             prefix_length = prfx.__globalSentence.__len__(metric)
