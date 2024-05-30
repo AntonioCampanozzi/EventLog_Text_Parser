@@ -38,14 +38,12 @@ class Text:
 
     def extractLabels(self):
         labels = []
-        labelEncoder = preprocessing.LabelEncoder()
         for prefix in self.extractPrefixes():
-            labels.append(prefix.getClass())
-        bin_labels = labelEncoder.fit_transform(labels)
-
-        # 0 for deviant, 1 for regular
-
-        return bin_labels
+            if prefix.getClass() == 'regular':
+                labels.append(0)
+            else:
+                labels.append(1)
+        return labels
 
     def uniqueLabels(self):
         labels = []
