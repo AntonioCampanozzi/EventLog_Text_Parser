@@ -44,11 +44,11 @@ class SkeletonCompiler:
             paragraph.addLocalSentence(i_localSentence)
         return paragraph
 
-    def compileText(self):
+    def compileText(self, supposed_maxlen: int):
         # this constructor does nothing, is needed just to initialize the variable
         text: Text = Text()
         for i in range(self.__logToCompile.__len__()):
             i_paragraph = self.__compileTrace(i)
-            i_paragraph.toSubParagraphs()
+            i_paragraph.toSubParagraphs(supposed_maxlen)
             text.add(i_paragraph)
         return text
