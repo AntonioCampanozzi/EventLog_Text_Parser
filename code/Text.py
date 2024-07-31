@@ -59,11 +59,16 @@ class Text:
         return prefixes
 
     def sample(self, samplelen: int):
-        sample = []
+        sampledprefixes = []
+        sampledlabels = []
         for pfx in self.extractPrefixes():
             if pfx.getSentenceset().__len__() == samplelen:
-                sample.append(pfx)
-        return sample
+                sampledprefixes.append(pfx)
+                if pfx.getClass() == 'regular':
+                    sampledlabels.append(0)
+                else:
+                    sampledlabels.append(1)
+        return sampledprefixes,sampledlabels
 
     def __str__(self):
         textstr = ''
