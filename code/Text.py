@@ -52,11 +52,23 @@ class Text:
         return list(set(labels))
 
     def extractPrefixes(self):
-        prefixes=[]
+        prefixes = []
         for par in self.__paragraphSet:
             for prfx in par.getPrefixSet():
                 prefixes.append(prfx)
         return prefixes
+
+    def sample(self, samplelen: int):
+        sampledprefixes = []
+        sampledlabels = []
+        for pfx in self.extractPrefixes():
+            if pfx.getSentenceset().__len__() == samplelen:
+                sampledprefixes.append(pfx)
+                if pfx.getClass() == 'regular':
+                    sampledlabels.append(0)
+                else:
+                    sampledlabels.append(1)
+        return sampledprefixes,sampledlabels
 
     def __str__(self):
         textstr = ''
@@ -70,4 +82,3 @@ class Text:
             traceLens.append(i.__len__(metric))
 
         return traceLens
-
