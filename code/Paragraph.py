@@ -16,6 +16,9 @@ class Paragraph:
     def getGlobalSentence(self):
         return self.__globalSentence
 
+    def getSentenceset(self):
+        return self.__localSentences
+
     def getLocalSentence(self, index: int):
         return self.__localSentences[index]
 
@@ -28,14 +31,14 @@ class Paragraph:
     def addLocalSentence(self, locSentence: Sentence):
         self.__localSentences.append(locSentence)
 
-    def toSubParagraphs(self, prfxLen: int = 1):
-        while prfxLen <= self.__localSentences.__len__():
+    def toSubParagraphs(self, supposed_maxlen: int, prfxLen: int = 1):
+        max_prefix_length = min(40, supposed_maxlen)
+        while prfxLen <= min(max_prefix_length, self.__localSentences.__len__()):
             subParagraph = Paragraph(self.__globalSentence, self.__trcClass)
             for i in range(prfxLen):
                 subParagraph.addLocalSentence(self.getLocalSentence(i))
             self.__prefixSet.append(subParagraph)
             prfxLen += 1
-        return self.__prefixSet
 
     def formatParagraph(self):
         paragraphstr = ''
@@ -47,13 +50,21 @@ class Paragraph:
             paragraphstr += f'{prefixstr}\n'
         return paragraphstr
 
+    def formatPrefix(self):
+        prefixstr = ''
+        for localSentence in self.__localSentences:
+            prefixstr += f'{localSentence}; '
+        prefixstr += f'{self.getGlobalSentence()}   '
+        return prefixstr
 
     def __str__(self):
-            prefixstr=''
-            for localSentence in self.__localSentences:
-                prefixstr += f'{localSentence}; '
-            prefixstr += f'{self.getGlobalSentence()}   '
-            return prefixstr
+        formattedString = ''
+        # check if the paragraph is a prefix or not
+        if len(self.__prefixSet) == 0:
+            formattedString = self.formatPrefix()
+        else:
+            formattedString = self.formatParagraph()
+        return formattedString
 
     def Paragraphlen(self, metric: str = 'characters'):
         paragraph_length = 0
