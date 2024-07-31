@@ -2,6 +2,7 @@ import math
 import random
 from datetime import datetime
 
+import numpy as np
 import pandas
 import pandas as pd
 import pm4py
@@ -22,7 +23,10 @@ class EventLogProcesser:
             timestampOfFirstEvent = int(datetime.timestamp(trc[0].get('time:timestamp')))
             for e in trc:
                 e['time:timestamp'] = int(datetime.timestamp(e.get('time:timestamp')) - timestampOfFirstEvent)
-
+    @staticmethod
+    def get_pos_case_length_quantile(data, quantile=0.90):
+        return int(
+            np.ceil(data[data['case:label'] == 'regular'].groupby('case:concept:name').size().quantile(quantile)))
     @staticmethod
     def sortEventLog(elog: EventLog, timestampLabel: str = 'time:timestamp'):
         listofTrcaes: list = []
@@ -34,7 +38,7 @@ class EventLogProcesser:
         return sortedEventLog
 
     @staticmethod
-    def split_train_validation(evLog: EventLog, xesDestinationpath: str, XesName, trainPrcntg: float = 0.8):
+    def split_train_validation(evLog: EventLog, XesName, trainPrcntg: float = 0.8):
         idxs = [i for i in range(len(evLog))]
         random.seed(42)
         random.shuffle(idxs)
@@ -44,20 +48,22 @@ class EventLogProcesser:
         train_EventLog = EventLog(list(), attributes=evLog.attributes, extensions=evLog.extensions,
                                   classifiers=evLog.classifiers,
                                   omni_present=evLog.omni_present, properties=evLog.properties)
-        test_EventLog = EventLog(list(), attributes=evLog.attributes, extensions=evLog.extensions,
+        val_EventLog = EventLog(list(), attributes=evLog.attributes, extensions=evLog.extensions,
                                  classifiers=evLog.classifiers,
                                  omni_present=evLog.omni_present, properties=evLog.properties)
         for idx in idxs_train:
             train_EventLog.append(evLog[idx])
         for idx in idxs_test:
-            test_EventLog.append(evLog[idx])
+            val_EventLog.append(evLog[idx])
 
-        pm4py.write_xes(train_EventLog, f'{xesDestinationpath}\\TRAIN_{XesName}.xes')
+        pm4py.write_xes(train_EventLog, f'..\\..\\logs\\TRAIN_{XesName}.xes')
 
-        pm4py.write_xes(test_EventLog, f'{xesDestinationpath}\\VALIDATION_{XesName}.xes')
+        pm4py.write_xes(val_EventLog, f'..\\..\\logs\\VALIDATION_{XesName}.xes')
+
+        return train_EventLog,val_EventLog
 
     @staticmethod
-    def split_train_test(data: pd.DataFrame, train_ratio, split="temporal"):
+    def split_train_test(data: pd.DataFrame, train_ratio, XesName, split="temporal"):
         # split into train and test using temporal split and discard events that overlap the periods
         data = data.sort_values(['time:timestamp'], ascending=True, kind='mergesort')
         grouped = data.groupby('case:concept:name')
@@ -75,4 +81,5 @@ class EventLogProcesser:
 
         train_log = pm4py.convert_to_event_log(pm4py.format_dataframe(train))
         test_log = pm4py.convert_to_event_log(pm4py.format_dataframe(test))
+        pm4py.write_xes(test_log, f'..\\..\\logs\\TEST_{XesName}.xes')
         return train_log, test_log
