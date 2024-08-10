@@ -1,0 +1,2 @@
+assistance (for a <impact> impact incident) (regarding <product>) (made in <organization country>):
+<concept:name> <lifecycle:transition> (by <organization involved>) after <time:timestamp> seconds by <org:resource> (from <resource country>) (who works <org:role>) (of <org:group>).

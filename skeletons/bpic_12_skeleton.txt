@@ -1,0 +1,2 @@
+Customer's request for loan of <AMOUNT_REQ> euros procedure:
+<concept:name> <lifecycle:transition> by resource <Resource> at <hour>, on month <month>, week day <weekday>, after <timesincecasestart> minutes since case start, <timesincelastevent> minutes since last event, <timesincemidnight> minutes since midnight, event number: <event_nr>, open cases: <open_cases>
