@@ -1,0 +1,2 @@
+Order for <Work_Order_Qty> pieces of <Part_Desc_> procedure.
+<concept:name> at <hour>, after <timesincecasestart> minutes since case start, <timesincelastevent> minutes since last event, <timesincemidnight> minutes since midnight, on month <month> and weekday <weekday> by <Resource.1>:<Resource> that completed <Qty_Completed> pieces in total of product and <Qty_for_MRB> pieces for MRB in <activity_duration> minutes, rework status: <Rework>, report type: <Report_Type>, event number <event_nr>, <open_cases> open cases
