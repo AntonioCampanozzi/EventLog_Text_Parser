@@ -16,8 +16,6 @@ from EventLog_Text_Parser.code.Text import Text
 import statistics
 
 if __name__ == '__main__':
-    # ..\\datasets\\sepsis_cases_4.csv C:\Users\anton\PycharmProjects\EventLog_Text_Parser_2\sepsis\sepsis_cases_4.csv
-    # ../skeletons/sepsis_skeleton
 
     eventlog_path = input('insert event log path: ')
     skeleton_path = input('insert skeleton path: ')
