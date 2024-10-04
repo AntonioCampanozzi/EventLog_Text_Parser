@@ -1,5 +1,3 @@
-from sklearn import preprocessing
-
 from EventLog_Text_Parser.code.Paragraph import Paragraph
 import pickle
 
@@ -20,7 +18,7 @@ class Text:
             file.close()
         elif filetype == '.txt':
             file = open(f'{filepath}.txt', 'w')
-            file.write(self.__str__())
+            file.write(self.getParagraph(0).__str__())
             file.close()
 
     @staticmethod
@@ -44,12 +42,6 @@ class Text:
             else:
                 labels.append(1)
         return labels
-
-    def uniqueLabels(self):
-        labels = []
-        for par in self.__paragraphSet:
-            labels.append(par.getClass())
-        return list(set(labels))
 
     def extractPrefixes(self):
         prefixes = []
