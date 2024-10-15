@@ -1,0 +1,18 @@
+AC410100 produced by SGNA administered by Obstetrics & Gynaecology clinic of Section 2 1 times, specialism code: SC7, at 23, on month 7, week day 3, after 0.0 minutes since case start, 0.0 minutes since last event, 1380 minutes since midnight, event number: 1, open cases: 421
+Treatment TC101 and combination treatment other, specialism code SC7 for patient aged 78 diagnosed with maligniteit endometrium: M14
+
+AC410100 produced by SGNA administered by Obstetrics & Gynaecology clinic of Section 2 1 times, specialism code: SC7, at 23, on month 7, week day 3, after 0.0 minutes since case start, 0.0 minutes since last event, 1380 minutes since midnight, event number: 1, open cases: 421
+AC419100 produced by SGNA administered by Obstetrics & Gynaecology clinic of Section 2 1 times, specialism code: SC7, at 23, on month 7, week day 3, after 0.0 minutes since case start, 0.0 minutes since last event, 1380 minutes since midnight, event number: 2, open cases: 421
+Treatment TC101 and combination treatment other, specialism code SC7 for patient aged 78 diagnosed with maligniteit endometrium: M14
+
+AC410100 produced by SGNA administered by Obstetrics & Gynaecology clinic of Section 2 1 times, specialism code: SC7, at 23, on month 7, week day 3, after 0.0 minutes since case start, 0.0 minutes since last event, 1380 minutes since midnight, event number: 1, open cases: 421
+AC419100 produced by SGNA administered by Obstetrics & Gynaecology clinic of Section 2 1 times, specialism code: SC7, at 23, on month 7, week day 3, after 0.0 minutes since case start, 0.0 minutes since last event, 1380 minutes since midnight, event number: 2, open cases: 421
+AC415100 produced by SGNA administered by Obstetrics & Gynaecology clinic of Section 2 1 times, specialism code: SC7, at 23, on month 10, week day 3, after 131040.0 minutes since case start, 131040.0 minutes since last event, 1380 minutes since midnight, event number: 3, open cases: 378
+Treatment TC101 and combination treatment other, specialism code SC7 for patient aged 78 diagnosed with maligniteit endometrium: M14
+
+AC410100 produced by SGNA administered by Obstetrics & Gynaecology clinic of Section 2 1 times, specialism code: SC7, at 23, on month 7, week day 3, after 0.0 minutes since case start, 0.0 minutes since last event, 1380 minutes since midnight, event number: 1, open cases: 421
+AC419100 produced by SGNA administered by Obstetrics & Gynaecology clinic of Section 2 1 times, specialism code: SC7, at 23, on month 7, week day 3, after 0.0 minutes since case start, 0.0 minutes since last event, 1380 minutes since midnight, event number: 2, open cases: 421
+AC415100 produced by SGNA administered by Obstetrics & Gynaecology clinic of Section 2 1 times, specialism code: SC7, at 23, on month 10, week day 3, after 131040.0 minutes since case start, 131040.0 minutes since last event, 1380 minutes since midnight, event number: 3, open cases: 378
+AC411100 produced by SGNA administered by Obstetrics & Gynaecology clinic of Section 2 1 times, specialism code: SC7, at 23, on month 10, week day 6, after 135360.0 minutes since case start, 4320.0 minutes since last event, 1380 minutes since midnight, event number: 4, open cases: 376
+Treatment TC101 and combination treatment other, specialism code SC7 for patient aged 78 diagnosed with maligniteit endometrium: M14
+
