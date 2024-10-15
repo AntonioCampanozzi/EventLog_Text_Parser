@@ -75,10 +75,6 @@ if __name__ == '__main__':
 
             TEST_text.store(f'{path}/TEST_{log_name}_textLog')
 
-            TRAIN_text.store(f'{path}/TRAIN_{log_name}_textlog', filetype='.txt')
-
-            VALIDATION_text.store(f'{path}/VALIDATION_{log_name}_textLog', filetype='.txt')
-
             TEST_text.store(f'{path}/TEST_{log_name}_textLog', filetype='.txt')
 
             print('files saved.')
@@ -110,10 +106,6 @@ if __name__ == '__main__':
             VALIDATION_text.store(f'..\\textlogs\\VALIDATION_{log_name}_textLog')
 
             TEST_text.store(f'..\\textlogs\\TEST_{log_name}_textLog')
-
-            TRAIN_text.store(f'..\\textlogs\\TRAIN_{log_name}_textlog', filetype='.txt')
-
-            VALIDATION_text.store(f'..\\textlogs\\VALIDATION_{log_name}_textLog', filetype='.txt')
 
             TEST_text.store(f'..\\textlogs\\TEST_{log_name}_textLog', filetype='.txt')
 

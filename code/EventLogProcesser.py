@@ -56,9 +56,9 @@ class EventLogProcesser:
         for idx in idxs_test:
             val_EventLog.append(evLog[idx])
 
-        pm4py.write_xes(train_EventLog, f'..\\logs\\TRAIN_{XesName}.xes')
+        pm4py.write_xes(train_EventLog, f'..\\splitted_eventlogs\\TRAIN_{XesName}.xes')
 
-        pm4py.write_xes(val_EventLog, f'..\\logs\\VALIDATION_{XesName}.xes')
+        pm4py.write_xes(val_EventLog, f'..\\splitted_eventlogs\\VALIDATION_{XesName}.xes')
 
         return train_EventLog,val_EventLog
 
@@ -81,5 +81,5 @@ class EventLogProcesser:
 
         train_log = pm4py.convert_to_event_log(pm4py.format_dataframe(train))
         test_log = pm4py.convert_to_event_log(pm4py.format_dataframe(test))
-        pm4py.write_xes(test_log, f'..\\logs\\TEST_{XesName}.xes')
+        pm4py.write_xes(test_log, f'..\\splitted_eventlogs\\TEST_{XesName}.xes')
         return train_log, test_log
