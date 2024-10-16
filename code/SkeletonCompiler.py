@@ -1,9 +1,9 @@
 from pm4py.objects.log.obj import EventLog, Trace
 
-from EventLog_Text_Parser.code.EventSkeleton import EventSkeleton
-from EventLog_Text_Parser.code.GlobalSkeleton import GlobalSkeleton
-from EventLog_Text_Parser.code.Paragraph import Paragraph
-from EventLog_Text_Parser.code.Text import Text
+from EventSkeleton import EventSkeleton
+from GlobalSkeleton import GlobalSkeleton
+from Paragraph import Paragraph
+from Text import Text
 
 
 class SkeletonCompiler:

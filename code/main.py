@@ -1,19 +1,10 @@
-import pickle
-from collections import Counter
 
-import numpy as np
 import pandas as pd
-import pm4py
-from numpy import mean
-from pm4py.objects.log.obj import Trace, EventLog
+from EventLogProcesser import EventLogProcesser
+from EventSkeleton import EventSkeleton
+from GlobalSkeleton import GlobalSkeleton
+from SkeletonCompiler import SkeletonCompiler
 
-from EventLog_Text_Parser.code.EventLogProcesser import EventLogProcesser
-from EventLog_Text_Parser.code.EventSkeleton import EventSkeleton
-from EventLog_Text_Parser.code.GlobalSkeleton import GlobalSkeleton
-from EventLog_Text_Parser.code.Paragraph import Paragraph
-from EventLog_Text_Parser.code.SkeletonCompiler import SkeletonCompiler
-from EventLog_Text_Parser.code.Text import Text
-import statistics
 
 if __name__ == '__main__':
 
