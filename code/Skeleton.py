@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
 import re
 
-from EventLog_Text_Parser.code.NonTerminal import NonTerminal
-from EventLog_Text_Parser.code.Sentence import Sentence
+from Sentence import Sentence
 
 
 class Skeleton(ABC):

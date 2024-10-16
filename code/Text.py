@@ -1,4 +1,4 @@
-from EventLog_Text_Parser.code.Paragraph import Paragraph
+from Paragraph import Paragraph
 import pickle
 
 

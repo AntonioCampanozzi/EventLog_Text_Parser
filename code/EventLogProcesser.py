@@ -3,7 +3,6 @@ import random
 from datetime import datetime
 
 import numpy as np
-import pandas
 import pandas as pd
 import pm4py
 from pm4py.objects.log.obj import EventLog

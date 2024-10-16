@@ -1,6 +1,6 @@
 import re
 
-from EventLog_Text_Parser.code.NonTerminal import NonTerminal
+from NonTerminal import NonTerminal
 from Skeleton import Skeleton
 
 
